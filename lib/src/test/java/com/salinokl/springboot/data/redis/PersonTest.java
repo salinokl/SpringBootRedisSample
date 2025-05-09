@@ -15,7 +15,8 @@ public class PersonTest {
 	@Test
 	public void basicCrudOperations() {
 		try {
-			Person rand = new Person("rand", "al'thor");
+			
+			Person rand = Person.of("rand", "al'thor");
 			
 			repo.save(rand);
 			Optional<Person> result = repo.findById(rand.getId());
@@ -23,8 +24,8 @@ public class PersonTest {
 			Person person = result.get();
 			
 			System.out.println(person.getId());
-			System.out.println(person.getFirstName());
-			System.out.println(person.getLastName());
+			System.out.println(person.getFirstname());
+			System.out.println(person.getLastname());
 			System.out.println(repo.count());
 			
 			repo.delete(rand);
